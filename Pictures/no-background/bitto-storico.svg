@@ -1,0 +1,127 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800">
+  <title>Bitto Storico</title>
+  <defs>
+    <filter id="wash" x="-15%" y="-15%" width="130%" height="130%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.022" numOctaves="3" seed="2" result="warp"/>
+      <feDisplacementMap in="SourceGraphic" in2="warp" scale="14" xChannelSelector="R" yChannelSelector="G" result="shape"/>
+      <feGaussianBlur in="shape" stdDeviation="4" result="soft"/>
+      <feComposite in="shape" in2="soft" operator="arithmetic" k2="1.7" k3="-0.7" result="edge"/>
+      <feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="4" seed="5" result="bloom"/>
+      <feColorMatrix in="bloom" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  1.5 0 0 0 0.18" result="bloomA"/>
+      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="1" seed="9" result="grain"/>
+      <feColorMatrix in="grain" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0.7 0 0 0 0.6" result="grainA"/>
+      <feComposite in="bloomA" in2="grainA" operator="arithmetic" k1="1" result="tex"/>
+      <feComposite in="edge" in2="tex" operator="in"/>
+    </filter>
+    <filter id="wash-soft" x="-20%" y="-20%" width="140%" height="140%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.012" numOctaves="3" seed="21" result="warp"/>
+      <feDisplacementMap in="SourceGraphic" in2="warp" scale="40" xChannelSelector="R" yChannelSelector="G" result="shape"/>
+      <feGaussianBlur in="shape" stdDeviation="7" result="blur"/>
+      <feComposite in="shape" in2="blur" operator="arithmetic" k2="0.6" k3="0.6" result="edge"/>
+      <feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="4" seed="6" result="bloom"/>
+      <feColorMatrix in="bloom" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  1.2 0 0 0 0.2" result="bloomA"/>
+      <feComposite in="edge" in2="bloomA" operator="in"/>
+    </filter>
+    <filter id="wash-fine" x="-20%" y="-20%" width="140%" height="140%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.06" numOctaves="2" seed="3" result="warp"/>
+      <feDisplacementMap in="SourceGraphic" in2="warp" scale="5" xChannelSelector="R" yChannelSelector="G" result="shape"/>
+      <feGaussianBlur in="shape" stdDeviation="1.6" result="soft"/>
+      <feComposite in="shape" in2="soft" operator="arithmetic" k2="1.6" k3="-0.6"/>
+    </filter>
+    <filter id="pencil" x="-10%" y="-10%" width="120%" height="120%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="4" result="w"/>
+      <feDisplacementMap in="SourceGraphic" in2="w" scale="4" xChannelSelector="R" yChannelSelector="G" result="d"/>
+      <feTurbulence type="fractalNoise" baseFrequency="1.1" numOctaves="1" seed="8" result="g"/>
+      <feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  1.8 0 0 0 0" result="gA"/>
+      <feComposite in="d" in2="gA" operator="in"/>
+    </filter>
+    <filter id="ink" x="-5%" y="-5%" width="110%" height="110%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="1" seed="9" result="g"/>
+      <feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  1.2 0 0 0 0.25" result="gA"/>
+      <feComposite in="SourceGraphic" in2="gA" operator="in"/>
+    </filter>
+  </defs>
+
+
+  <!-- cast shadow -->
+  <path d="M70,640 C150,600 650,590 748,630 C770,676 640,712 420,710 C200,708 50,690 70,640 Z" fill="#9c96ab" opacity="0.34" filter="url(#wash-soft)"/>
+
+  <!-- plank -->
+  <path d="M44,694 L756,668 L756,684 L44,710 Z" fill="#8f6544" opacity="0.92" filter="url(#wash)"/>
+  <path d="M70,596 L730,572 L756,668 L44,694 Z" fill="#c49a72" opacity="0.92" filter="url(#wash)"/>
+  <g fill="none" stroke="#8f6544" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" opacity="0.45" filter="url(#pencil)">
+    <path d="M100,620 C300,612 500,600 720,596"/>
+    <path d="M80,650 C260,646 480,636 740,628"/>
+    <path d="M300,628 c20,-8 40,-8 60,0 c-20,8 -40,8 -60,0"/>
+  </g>
+  <g fill="none" stroke="#5f4a3a" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" opacity="0.76" filter="url(#pencil)">
+    <path d="M70,596 L730,572 L756,668 L44,694"/>
+    <path d="M44,694 L44,710 L756,684 L756,668"/>
+  </g>
+
+  <!-- wheel standing on its edge: concave side band -->
+  <path d="M298.5,213.7 L373.5,201.7 A165,200 0 0 1 416.5,598.3 L341.5,610.3 A165,200 0 0 0 298.5,213.7 Z" fill="#fbf5ea" filter="url(#wash-fine)"/>
+  <path d="M298.5,213.7 L373.5,201.7 A165,200 0 0 1 416.5,598.3 L341.5,610.3 A165,200 0 0 0 298.5,213.7 Z" fill="#a8916f" opacity="0.93" filter="url(#wash)"/>
+  <path d="M373.5,201.7 A165,200 0 0 1 416.5,598.3 L379.0,604.3 C496.5,532.0 496.5,292.0 336.0,207.7 Z" fill="#8a7255" opacity="0.5" filter="url(#wash)"/>
+  <path d="M155,412 A165,200 0 1 1 485,412 A165,200 0 1 1 155,412 Z" fill="#fbf5ea" filter="url(#wash-fine)"/>
+  <path d="M155,412 A165,200 0 1 1 485,412 A165,200 0 1 1 155,412 Z" fill="#d9b778" opacity="0.93" filter="url(#wash)"/>
+  <ellipse cx="320" cy="412" rx="151" ry="184" fill="none" stroke="#b8935a" stroke-width="10" opacity="0.45" filter="url(#wash)"/>
+  <path d="M360,232 C450,292 470,472 410,582 C480,532 496,312 360,232 Z" fill="#b08a52" opacity="0.45" filter="url(#wash)"/>
+  <g filter="url(#wash-soft)">
+    <ellipse cx="223" cy="479" rx="17" ry="11" fill="#a88c66" opacity="0.16"/>
+    <ellipse cx="238" cy="516" rx="19" ry="11" fill="#a88c66" opacity="0.16"/>
+    <ellipse cx="321" cy="318" rx="8" ry="10" fill="#a88c66" opacity="0.16"/>
+    <ellipse cx="345" cy="259" rx="19" ry="8" fill="#a88c66" opacity="0.16"/>
+    <ellipse cx="429" cy="453" rx="8" ry="9" fill="#a88c66" opacity="0.16"/>
+    <ellipse cx="319" cy="276" rx="21" ry="10" fill="#a88c66" opacity="0.16"/>
+    <ellipse cx="220" cy="525" rx="10" ry="15" fill="#a88c66" opacity="0.16"/>
+    <ellipse cx="306" cy="430" rx="13" ry="11" fill="#a88c66" opacity="0.16"/>
+    <ellipse cx="426" cy="318" rx="19" ry="8" fill="#a88c66" opacity="0.16"/>
+    <ellipse cx="394" cy="505" rx="16" ry="13" fill="#a88c66" opacity="0.16"/>
+    <ellipse cx="211" cy="404" rx="20" ry="8" fill="#a88c66" opacity="0.16"/>
+    <ellipse cx="294" cy="364" rx="14" ry="10" fill="#a88c66" opacity="0.16"/>
+    <ellipse cx="319" cy="409" rx="16" ry="13" fill="#a88c66" opacity="0.16"/>
+    <ellipse cx="239" cy="451" rx="16" ry="12" fill="#a88c66" opacity="0.16"/>
+  </g>
+  <path d="M220,292 C260,242 320,232 350,236 C290,262 240,302 220,352 Z" fill="#fbf1d8" opacity="0.5" filter="url(#wash)"/>
+  <g transform="rotate(-8 300 432)" opacity="0.7">
+    <ellipse cx="300" cy="432" rx="62" ry="34" fill="none" stroke="#7d5a34" stroke-width="2.2" filter="url(#pencil)"/>
+    <g fill="#7d5a34" font-family="'Liberation Serif', 'Nimbus Roman', serif" text-anchor="middle" letter-spacing="2" filter="url(#ink)">
+      <text x="300" y="428" font-size="15">BITTO</text>
+      <text x="300" y="446" font-size="10">STORICO</text>
+    </g>
+  </g>
+  <g fill="none" stroke="#5f4a3a" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" opacity="0.76" filter="url(#pencil)">
+    <path d="M155,412 A165,200 0 1 1 485,412 A165,200 0 1 1 155,412"/>
+    <path d="M298.5,213.7 L373.5,201.7 A165,200 0 0 1 416.5,598.3 L341.5,610.3"/>
+    <path d="M336.0,207.7 C496.5,292.0 496.5,532.0 379.0,604.3"/>
+  </g>
+
+  <!-- wedge -->
+  <path d="M585,352 L606,342 L734,604 Q724,618 706,628 Z" fill="#fbf5ea" filter="url(#wash-fine)"/>
+  <path d="M585,352 L606,342 L734,604 Q724,618 706,628 Z" fill="#c9a45e" opacity="0.93" filter="url(#wash)"/>
+  <path d="M585,352 L468,650 Q587,696 706,628 Z" fill="#fbf5ea" filter="url(#wash-fine)"/>
+  <path d="M585,352 L468,650 Q587,696 706,628 Z" fill="#f1d690" opacity="0.93" filter="url(#wash)"/>
+  <path d="M585,352 L706,628 Q676,646 646,652 C636,548 625,472 585,352 Z" fill="#e0bb6c" opacity="0.45" filter="url(#wash)"/>
+  <path d="M474,630 Q587,674 702,608 L706,628 Q587,696 468,650 Z" fill="#9e8566" opacity="0.95" filter="url(#wash-fine)"/>
+  <path d="M706,628 L734,604 L726,586 L702,608 Z" fill="#86704f" opacity="0.9" filter="url(#wash-fine)"/>
+  <g filter="url(#wash-fine)">
+    <ellipse cx="560" cy="594" rx="3.7" ry="3.0" fill="#c99f52" opacity="0.8"/><path d="M556.3,595.1 A3.7,3.0 0 0 0 563.7,595.1" fill="none" stroke="#fff6dc" stroke-width="1.2"/>
+    <ellipse cx="604" cy="459" rx="2.9" ry="2.3" fill="#c99f52" opacity="0.8"/><path d="M601.4,459.8 A2.9,2.3 0 0 0 607.2,459.8" fill="none" stroke="#fff6dc" stroke-width="1.2"/>
+    <ellipse cx="620" cy="539" rx="5.6" ry="4.5" fill="#c99f52" opacity="0.8"/><path d="M614.0,540.3 A5.6,4.5 0 0 0 625.3,540.3" fill="none" stroke="#fff6dc" stroke-width="1.2"/>
+    <ellipse cx="603" cy="585" rx="4.2" ry="3.4" fill="#c99f52" opacity="0.8"/><path d="M598.9,585.5 A4.2,3.4 0 0 0 607.3,585.5" fill="none" stroke="#fff6dc" stroke-width="1.2"/>
+    <ellipse cx="565" cy="446" rx="5.6" ry="4.5" fill="#c99f52" opacity="0.8"/><path d="M559.3,446.9 A5.6,4.5 0 0 0 570.4,446.9" fill="none" stroke="#fff6dc" stroke-width="1.2"/>
+    <ellipse cx="641" cy="561" rx="4.2" ry="3.4" fill="#c99f52" opacity="0.8"/><path d="M637.1,561.7 A4.2,3.4 0 0 0 645.5,561.7" fill="none" stroke="#fff6dc" stroke-width="1.2"/>
+    <ellipse cx="573" cy="429" rx="2.7" ry="2.2" fill="#c99f52" opacity="0.8"/><path d="M569.9,430.2 A2.7,2.2 0 0 0 575.4,430.2" fill="none" stroke="#fff6dc" stroke-width="1.2"/>
+    <ellipse cx="558" cy="588" rx="5.9" ry="4.8" fill="#c99f52" opacity="0.8"/><path d="M552.2,589.0 A5.9,4.8 0 0 0 564.1,589.0" fill="none" stroke="#fff6dc" stroke-width="1.2"/>
+    <ellipse cx="631" cy="496" rx="3.4" ry="2.7" fill="#c99f52" opacity="0.8"/><path d="M627.4,497.4 A3.4,2.7 0 0 0 634.1,497.4" fill="none" stroke="#fff6dc" stroke-width="1.2"/>
+    <ellipse cx="536" cy="575" rx="5.3" ry="4.2" fill="#c99f52" opacity="0.8"/><path d="M530.5,575.7 A5.3,4.2 0 0 0 541.0,575.7" fill="none" stroke="#fff6dc" stroke-width="1.2"/>
+    <ellipse cx="574" cy="519" rx="5.5" ry="4.4" fill="#c99f52" opacity="0.8"/><path d="M568.4,519.7 A5.5,4.4 0 0 0 579.3,519.7" fill="none" stroke="#fff6dc" stroke-width="1.2"/>
+  </g>
+  <g fill="none" stroke="#5f4a3a" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" opacity="0.76" filter="url(#pencil)">
+    <path d="M585,352 L468,650 Q587,696 706,628"/>
+    <path d="M585,352 L606,342 L734,604 L706,628"/>
+    <path d="M585,352 L706,628"/>
+  </g>
+
+</svg>

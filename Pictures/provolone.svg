@@ -1,0 +1,136 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800">
+  <title>Provolone</title>
+  <defs>
+    <filter id="paper" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.07" numOctaves="4" seed="11" result="noise"/>
+      <feDiffuseLighting in="noise" lighting-color="#ffffff" surfaceScale="0.55" result="lit">
+        <feDistantLight azimuth="45" elevation="78"/>
+      </feDiffuseLighting>
+      <feFlood flood-color="#fbf5ea" result="base"/>
+      <feBlend in="lit" in2="base" mode="multiply"/>
+    </filter>
+    <filter id="wash" x="-15%" y="-15%" width="130%" height="130%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.022" numOctaves="3" seed="2" result="warp"/>
+      <feDisplacementMap in="SourceGraphic" in2="warp" scale="14" xChannelSelector="R" yChannelSelector="G" result="shape"/>
+      <feGaussianBlur in="shape" stdDeviation="4" result="soft"/>
+      <feComposite in="shape" in2="soft" operator="arithmetic" k2="1.7" k3="-0.7" result="edge"/>
+      <feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="4" seed="5" result="bloom"/>
+      <feColorMatrix in="bloom" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  1.5 0 0 0 0.18" result="bloomA"/>
+      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="1" seed="9" result="grain"/>
+      <feColorMatrix in="grain" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0.7 0 0 0 0.6" result="grainA"/>
+      <feComposite in="bloomA" in2="grainA" operator="arithmetic" k1="1" result="tex"/>
+      <feComposite in="edge" in2="tex" operator="in"/>
+    </filter>
+    <filter id="wash-soft" x="-20%" y="-20%" width="140%" height="140%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.012" numOctaves="3" seed="21" result="warp"/>
+      <feDisplacementMap in="SourceGraphic" in2="warp" scale="40" xChannelSelector="R" yChannelSelector="G" result="shape"/>
+      <feGaussianBlur in="shape" stdDeviation="7" result="blur"/>
+      <feComposite in="shape" in2="blur" operator="arithmetic" k2="0.6" k3="0.6" result="edge"/>
+      <feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="4" seed="6" result="bloom"/>
+      <feColorMatrix in="bloom" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  1.2 0 0 0 0.2" result="bloomA"/>
+      <feComposite in="edge" in2="bloomA" operator="in"/>
+    </filter>
+    <filter id="wash-fine" x="-20%" y="-20%" width="140%" height="140%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.06" numOctaves="2" seed="3" result="warp"/>
+      <feDisplacementMap in="SourceGraphic" in2="warp" scale="5" xChannelSelector="R" yChannelSelector="G" result="shape"/>
+      <feGaussianBlur in="shape" stdDeviation="1.6" result="soft"/>
+      <feComposite in="shape" in2="soft" operator="arithmetic" k2="1.6" k3="-0.6"/>
+    </filter>
+    <filter id="pencil" x="-10%" y="-10%" width="120%" height="120%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="4" result="w"/>
+      <feDisplacementMap in="SourceGraphic" in2="w" scale="4" xChannelSelector="R" yChannelSelector="G" result="d"/>
+      <feTurbulence type="fractalNoise" baseFrequency="1.1" numOctaves="1" seed="8" result="g"/>
+      <feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  1.8 0 0 0 0" result="gA"/>
+      <feComposite in="d" in2="gA" operator="in"/>
+    </filter>
+    <filter id="ink" x="-5%" y="-5%" width="110%" height="110%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="1" seed="9" result="g"/>
+      <feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  1.2 0 0 0 0.25" result="gA"/>
+      <feComposite in="SourceGraphic" in2="gA" operator="in"/>
+    </filter>
+  </defs>
+
+  <rect width="800" height="800" filter="url(#paper)"/>
+
+  <!-- backdrop splash -->
+  <path d="M150,420 C136,270 260,170 410,176 C566,182 676,272 668,428 C660,566 574,662 412,664 C256,666 162,566 150,420 Z" fill="#b9cbd3" opacity="0.38" filter="url(#wash-soft)"/>
+
+  <!-- cast shadow -->
+  <path d="M170,616 C240,584 620,584 700,620 C720,664 590,700 420,698 C260,696 150,660 170,616 Z" fill="#9c96ab" opacity="0.38" filter="url(#wash-soft)"/>
+
+  <g transform="matrix(0.9 0 0 1.1 40 -56)">
+  <!-- hanging loop -->
+  <path d="M398,252 C380,210 370,150 400,128 C430,150 420,210 402,252" fill="none" stroke="#b39a74" stroke-width="4" stroke-linecap="round" opacity="0.9" filter="url(#wash-fine)"/>
+
+  <!-- body -->
+  <path d="M400,262 C470,262 560,330 572,440 C584,560 510,642 400,644 C290,642 216,560 228,440 C240,330 330,262 400,262 Z" fill="#fbf5ea" filter="url(#wash-fine)"/>
+  <path d="M400,262 C470,262 560,330 572,440 C584,560 510,642 400,644 C290,642 216,560 228,440 C240,330 330,262 400,262 Z" fill="#e8cc88" opacity="0.92" filter="url(#wash)"/>
+  <!-- lobe shading: darker beside each string, paler in the lobe centres -->
+  <clipPath id="clip-provolone"><path d="M400,262 C470,262 560,330 572,440 C584,560 510,642 400,644 C290,642 216,560 228,440 C240,330 330,262 400,262 Z"/></clipPath>
+  <g clip-path="url(#clip-provolone)"><g opacity="0.45" filter="url(#wash)">
+    <path d="M400,266 C262,300 232,560 372,640 C330,600 290,520 292,430 C294,350 340,296 400,266 Z" fill="#c99a52"/>
+    <path d="M400,266 C538,300 568,560 428,640 C470,600 510,520 508,430 C506,350 460,296 400,266 Z" fill="#c99a52"/>
+    <path d="M572,440 C584,560 510,642 400,644 C470,620 540,560 552,440 C556,380 540,330 520,300 C550,330 568,380 572,440 Z" fill="#b8843f"/>
+  </g></g>
+  <g fill="#fdf6e0" opacity="0.32" filter="url(#wash)">
+    <path d="M330,330 C300,380 296,460 316,540 C330,470 334,400 346,334 Z"/>
+    <path d="M430,316 C446,380 448,470 436,560 C424,480 420,390 420,320 Z"/>
+  </g>
+  <!-- faded red stamp on the rind -->
+  <g transform="rotate(-78 364 470)" fill="#d48a76" opacity="0.4" filter="url(#ink)" font-family="'Liberation Sans', 'Nimbus Sans', sans-serif" font-weight="bold" font-size="20" letter-spacing="2">
+    <text x="364" y="470" text-anchor="middle">PROVOLONE</text>
+  </g>
+  <g transform="rotate(-70 480 520)" fill="#d48a76" opacity="0.3" filter="url(#ink)" font-family="'Liberation Sans', 'Nimbus Sans', sans-serif" font-weight="bold" font-size="14" letter-spacing="2">
+    <text x="480" y="520" text-anchor="middle">PICCANTE</text>
+  </g>
+  <!-- top knob -->
+  <ellipse cx="400" cy="262" rx="26" ry="14" fill="#d9b673" opacity="0.95" filter="url(#wash-fine)"/>
+
+  <!-- strings -->
+  <g fill="none" stroke-linecap="round" filter="url(#wash-fine)">
+    <g stroke="#b39a74" stroke-width="5" opacity="0.9">
+      <path d="M400,266 C238,300 222,560 372,640"/>
+      <path d="M400,266 C315,300 302,580 386,644"/>
+      <path d="M400,266 C396,400 404,520 400,644"/>
+      <path d="M400,266 C485,300 498,580 414,644"/>
+      <path d="M400,266 C562,300 578,560 428,640"/>
+      <path d="M232,400 C300,430 500,430 568,400" opacity="0.8"/>
+    </g>
+    <g stroke="#7d6648" stroke-width="2" stroke-dasharray="5 4" opacity="0.7">
+      <path d="M400,266 C238,300 222,560 372,640"/>
+      <path d="M400,266 C315,300 302,580 386,644"/>
+      <path d="M400,266 C396,400 404,520 400,644"/>
+      <path d="M400,266 C485,300 498,580 414,644"/>
+      <path d="M400,266 C562,300 578,560 428,640"/>
+      <path d="M232,400 C300,430 500,430 568,400"/>
+    </g>
+  </g>
+  <path d="M384,258 C392,250 410,250 416,258 C410,266 390,266 384,258 Z" fill="#9c8462" opacity="0.9" filter="url(#wash-fine)"/>
+
+  </g>
+
+  <!-- cut slice in front -->
+  <path d="M520,628 C520,596 566,576 620,578 C676,580 712,604 708,632 L706,652 C700,680 660,694 612,692 C560,690 520,676 520,650 Z" fill="#d9b067" opacity="0.95" filter="url(#wash)"/>
+  <path d="M520,628 C520,600 566,580 620,582 C674,584 708,606 706,632 C702,660 664,674 614,672 C562,670 520,656 520,628 Z" fill="#fbf5ea" filter="url(#wash-fine)"/>
+  <path d="M520,628 C520,600 566,580 620,582 C674,584 708,606 706,632 C702,660 664,674 614,672 C562,670 520,656 520,628 Z" fill="#f4e7c3" opacity="0.95" filter="url(#wash)"/>
+  <path d="M534,628 C536,606 574,592 620,594 C666,596 694,612 692,632 C688,652 656,662 616,660 C572,658 534,648 534,628 Z" fill="none" stroke="#e3c68a" stroke-width="6" opacity="0.6" filter="url(#wash-fine)"/>
+  <ellipse cx="596" cy="620" rx="34" ry="10" fill="#fffaf0" opacity="0.6" filter="url(#wash-fine)"/>
+
+  <!-- pencil linework -->
+  <g transform="matrix(0.9 0 0 1.1 40 -56)" fill="none" stroke="#5f4a3a" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" opacity="0.76" filter="url(#pencil)">
+    <path d="M402,262 C472,264 560,332 571,442 C582,560 510,640 402,645"/>
+    <path d="M398,262 C330,264 242,330 229,442 C218,540 270,620 360,640"/>
+    <path d="M374,262 C378,252 422,252 426,262" opacity="0.7"/>
+    <path d="M398,250 C380,208 371,152 400,129 C429,152 420,208 402,250" opacity="0.6"/>
+  </g>
+  <g fill="none" stroke="#5f4a3a" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" opacity="0.76" filter="url(#pencil)">
+    <path d="M520,628 C520,600 566,580 620,582 C674,584 708,606 706,632 C702,660 664,674 614,672 C562,670 520,656 520,628 Z"/>
+    <path d="M520,630 L520,650 C520,676 560,690 612,692 C660,694 700,680 706,652 L707,634"/>
+  </g>
+
+  <!-- caption -->
+  <g fill="#6a5242" font-family="'Cormorant Garamond', 'EB Garamond', Georgia, 'C059', 'Liberation Serif', serif" text-anchor="middle">
+    <text x="400" y="746" font-size="40" font-style="italic">Provolone</text>
+    <text x="400" y="776" font-size="13" letter-spacing="5" opacity="0.75">VALPADANA</text>
+  </g>
+</svg>

@@ -1,0 +1,139 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800">
+  <title>Pecorino Romano</title>
+  <defs>
+    <filter id="paper" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.07" numOctaves="4" seed="11" result="noise"/>
+      <feDiffuseLighting in="noise" lighting-color="#ffffff" surfaceScale="0.55" result="lit">
+        <feDistantLight azimuth="45" elevation="78"/>
+      </feDiffuseLighting>
+      <feFlood flood-color="#fbf5ea" result="base"/>
+      <feBlend in="lit" in2="base" mode="multiply"/>
+    </filter>
+    <filter id="wash" x="-15%" y="-15%" width="130%" height="130%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.022" numOctaves="3" seed="2" result="warp"/>
+      <feDisplacementMap in="SourceGraphic" in2="warp" scale="14" xChannelSelector="R" yChannelSelector="G" result="shape"/>
+      <feGaussianBlur in="shape" stdDeviation="4" result="soft"/>
+      <feComposite in="shape" in2="soft" operator="arithmetic" k2="1.7" k3="-0.7" result="edge"/>
+      <feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="4" seed="5" result="bloom"/>
+      <feColorMatrix in="bloom" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  1.5 0 0 0 0.18" result="bloomA"/>
+      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="1" seed="9" result="grain"/>
+      <feColorMatrix in="grain" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0.7 0 0 0 0.6" result="grainA"/>
+      <feComposite in="bloomA" in2="grainA" operator="arithmetic" k1="1" result="tex"/>
+      <feComposite in="edge" in2="tex" operator="in"/>
+    </filter>
+    <filter id="wash-soft" x="-20%" y="-20%" width="140%" height="140%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.012" numOctaves="3" seed="21" result="warp"/>
+      <feDisplacementMap in="SourceGraphic" in2="warp" scale="40" xChannelSelector="R" yChannelSelector="G" result="shape"/>
+      <feGaussianBlur in="shape" stdDeviation="7" result="blur"/>
+      <feComposite in="shape" in2="blur" operator="arithmetic" k2="0.6" k3="0.6" result="edge"/>
+      <feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="4" seed="6" result="bloom"/>
+      <feColorMatrix in="bloom" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  1.2 0 0 0 0.2" result="bloomA"/>
+      <feComposite in="edge" in2="bloomA" operator="in"/>
+    </filter>
+    <filter id="wash-fine" x="-20%" y="-20%" width="140%" height="140%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.06" numOctaves="2" seed="3" result="warp"/>
+      <feDisplacementMap in="SourceGraphic" in2="warp" scale="5" xChannelSelector="R" yChannelSelector="G" result="shape"/>
+      <feGaussianBlur in="shape" stdDeviation="1.6" result="soft"/>
+      <feComposite in="shape" in2="soft" operator="arithmetic" k2="1.6" k3="-0.6"/>
+    </filter>
+    <filter id="pencil" x="-10%" y="-10%" width="120%" height="120%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="4" result="w"/>
+      <feDisplacementMap in="SourceGraphic" in2="w" scale="4" xChannelSelector="R" yChannelSelector="G" result="d"/>
+      <feTurbulence type="fractalNoise" baseFrequency="1.1" numOctaves="1" seed="8" result="g"/>
+      <feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  1.8 0 0 0 0" result="gA"/>
+      <feComposite in="d" in2="gA" operator="in"/>
+    </filter>
+    <filter id="ink" x="-5%" y="-5%" width="110%" height="110%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="1" seed="9" result="g"/>
+      <feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  1.2 0 0 0 0.25" result="gA"/>
+      <feComposite in="SourceGraphic" in2="gA" operator="in"/>
+    </filter>
+  </defs>
+
+  <rect width="800" height="800" filter="url(#paper)"/>
+
+  <!-- backdrop splash -->
+  <path d="M118,446 C108,304 236,204 400,208 C568,212 700,304 690,456 C682,586 580,670 410,670 C248,670 128,584 118,446 Z" fill="#b9cbd3" opacity="0.36" filter="url(#wash-soft)"/>
+  <!-- cast shadow -->
+  <path d="M84,604 C150,560 640,546 760,580 C786,630 640,704 420,704 C220,704 64,666 84,604 Z" fill="#9c96ab" opacity="0.38" filter="url(#wash-soft)"/>
+
+  <!-- paddle board -->
+  <path d="M110,604 L212,662 L668,612 L668,628 L212,678 L110,620 Z" fill="#b48660" opacity="0.92" filter="url(#wash)"/>
+  <path d="M600,579 L748,540 C764,536 778,548 772,563 C768,573 758,577 750,577 L640,598 Z" fill="#d1aa80" opacity="0.92" filter="url(#wash)"/>
+  <path d="M110,604 L566,562 L668,612 L212,662 Z" fill="#d8b28a" opacity="0.92" filter="url(#wash)"/>
+  <g fill="none" stroke="#a87c56" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" opacity="0.45" filter="url(#pencil)">
+    <path d="M232,600 C340,586 460,576 560,572"/>
+    <path d="M250,640 C360,628 500,612 640,606"/>
+    <path d="M110,604 L566,562 L668,612"/>
+  </g>
+
+  <!-- half wheel: dark rind -->
+  <path d="M270.3,429.5 L330.3,394.5 A210,200 0 0 1 650,565 L590,600 A210,200 0 0 0 270.3,429.5 Z" fill="#6f6764" opacity="0.92" filter="url(#wash)"/>
+  <path d="M270.3,429.5 L330.3,394.5 A210,200 0 0 1 545.0,391.8 L485.0,426.8 A210,200 0 0 0 270.3,429.5 Z" fill="#8d8580" opacity="0.5" filter="url(#wash)"/>
+  <g fill="none" stroke="#efe6d2" stroke-width="3.4" stroke-linecap="round" stroke-dasharray="0.5 8" opacity="0.6" filter="url(#wash-fine)">
+    <path d="M604.8,562.4 A210,200 0 0 0 304.7,410.4"/>
+    <path d="M619.2,554.0 A210,200 0 0 0 319.1,402.0"/>
+    <path d="M633.6,545.6 A210,200 0 0 0 333.5,393.6"/>
+  </g>
+  <!-- cut face -->
+  <path d="M170,600 A210,200 0 0 1 590,600 Z" fill="#fbf5ea" filter="url(#wash-fine)"/>
+  <path d="M170,600 A210,200 0 0 1 590,600 Z" fill="#f2ead3" opacity="0.93" filter="url(#wash)"/>
+  <path d="M170,600 A210,200 0 0 1 590,600 L574,600 A194,184 0 0 0 186,600 Z" fill="#6a625f" opacity="0.95" filter="url(#wash-fine)"/>
+  <path d="M186,600 A194,184 0 0 1 574,600 L560,600 A180,170 0 0 0 200,600 Z" fill="#e2d3a8" opacity="0.6" filter="url(#wash-fine)"/>
+  <path d="M420,600 C500,560 550,510 566,540 L574,600 Z" fill="#d9c8a0" opacity="0.5" filter="url(#wash)"/>
+  <path d="M260,560 C290,480 350,440 400,434 C350,470 300,510 280,570 Z" fill="#fffaf0" opacity="0.6" filter="url(#wash)"/>
+  <g filter="url(#wash-fine)">
+    <ellipse cx="281" cy="504" rx="2.4" ry="2.0" fill="#cdbb92" opacity="0.7"/>
+    <ellipse cx="427" cy="426" rx="1.5" ry="2.4" fill="#cdbb92" opacity="0.7"/>
+    <ellipse cx="289" cy="454" rx="4.0" ry="1.9" fill="#cdbb92" opacity="0.7"/>
+    <ellipse cx="507" cy="493" rx="3.1" ry="1.4" fill="#cdbb92" opacity="0.7"/>
+    <ellipse cx="431" cy="557" rx="2.8" ry="2.2" fill="#cdbb92" opacity="0.7"/>
+    <ellipse cx="477" cy="512" rx="2.3" ry="1.2" fill="#cdbb92" opacity="0.7"/>
+    <ellipse cx="518" cy="493" rx="3.3" ry="2.4" fill="#cdbb92" opacity="0.7"/>
+    <ellipse cx="461" cy="566" rx="2.5" ry="2.3" fill="#cdbb92" opacity="0.7"/>
+    <ellipse cx="359" cy="568" rx="3.7" ry="1.3" fill="#cdbb92" opacity="0.7"/>
+    <ellipse cx="428" cy="465" rx="2.8" ry="1.7" fill="#cdbb92" opacity="0.7"/>
+    <ellipse cx="324" cy="511" rx="3.0" ry="2.5" fill="#cdbb92" opacity="0.7"/>
+    <ellipse cx="449" cy="567" rx="3.6" ry="2.6" fill="#cdbb92" opacity="0.7"/>
+    <ellipse cx="444" cy="442" rx="3.7" ry="2.6" fill="#cdbb92" opacity="0.7"/>
+    <ellipse cx="532" cy="508" rx="3.3" ry="1.5" fill="#cdbb92" opacity="0.7"/>
+    <ellipse cx="505" cy="509" rx="2.2" ry="1.3" fill="#cdbb92" opacity="0.7"/>
+    <ellipse cx="513" cy="577" rx="1.7" ry="2.3" fill="#cdbb92" opacity="0.7"/>
+  </g>
+  <g fill="none" stroke="#a89670" stroke-width="1.3" stroke-linecap="round" opacity="0.55" filter="url(#pencil)">
+    <path d="M346,440 l-4,9 l6,4"/>
+    <path d="M423,423 l4,6 l6,10"/>
+    <path d="M382,579 l-4,4 l2,4"/>
+    <path d="M266,482 l2,5 l-7,9"/>
+    <path d="M310,572 l8,6 l-1,7"/>
+    <path d="M434,513 l1,8 l7,7"/>
+    <path d="M354,533 l-5,6 l8,7"/>
+    <path d="M398,417 l-2,7 l-8,8"/>
+    <path d="M430,425 l3,7 l3,6"/>
+  </g>
+  <g fill="none" stroke="#5f4a3a" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" opacity="0.76" filter="url(#pencil)">
+    <path d="M170,600 A210,200 0 0 1 590,600 L170,600"/>
+    <path d="M270.3,429.5 L330.3,394.5 A210,200 0 0 1 650,565 L590,600"/>
+    <path d="M186,600 A194,184 0 0 1 574,600"/>
+    <path d="M110,604 L212,662 L668,612"/>
+    <path d="M212,662 L212,678 L668,628 L668,612"/>
+    <path d="M600,579 L748,540 C764,536 778,548 772,563 C768,573 758,577 750,577 L640,598"/>
+  </g>
+
+  <!-- broad bean pods -->
+  <path d="M96,666 C128,642 212,636 284,652 C296,658 290,668 272,670 C212,678 140,684 104,678 C92,676 90,670 96,666 Z" fill="#a3b78a" opacity="0.92" filter="url(#wash)"/>
+  <path d="M110,674 C150,680 230,674 280,662 C270,672 210,680 150,682 Z" fill="#7f9768" opacity="0.6" filter="url(#wash-fine)"/>
+  <path d="M136,692 C172,676 240,674 290,682 C300,690 290,698 276,699 C228,704 172,706 142,702 C130,700 128,696 136,692 Z" fill="#b3c597" opacity="0.92" filter="url(#wash)"/>
+  <g opacity="0.95" filter="url(#wash-fine)"><ellipse cx="172" cy="688" rx="13" ry="7" fill="#c3d19e"/><ellipse cx="202" cy="686" rx="13" ry="7" fill="#c3d19e"/><ellipse cx="232" cy="686" rx="13" ry="7" fill="#c3d19e"/><ellipse cx="260" cy="687" rx="13" ry="7" fill="#c3d19e"/></g>
+  <g fill="none" stroke="#5f4a3a" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" opacity="0.76" filter="url(#pencil)">
+    <path d="M96,666 C128,642 212,636 284,652 C296,658 290,668 272,670 C212,678 140,684 104,678 C92,676 90,670 96,666 Z"/>
+    <path d="M136,692 C172,676 240,674 290,682 C300,690 290,698 276,699 C228,704 172,706 142,702 C130,700 128,696 136,692 Z"/>
+    <path d="M130,660 c16,-6 30,-6 44,-2 M186,654 c16,-4 30,-4 44,0 M240,652 c12,-2 24,0 34,4"/>
+  </g>
+
+  <!-- caption -->
+  <g fill="#6a5242" font-family="'Cormorant Garamond', 'EB Garamond', Georgia, 'C059', 'Liberation Serif', serif" text-anchor="middle">
+    <text x="400" y="746" font-size="40" font-style="italic">Pecorino Romano</text>
+    <text x="400" y="776" font-size="13" letter-spacing="5" opacity="0.75">LAZIO · SARDEGNA</text>
+  </g>
+</svg>

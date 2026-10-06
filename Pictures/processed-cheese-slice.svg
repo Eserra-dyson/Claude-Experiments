@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800">
+  <title>Formaggio fuso a fette</title>
+  <defs>
+    <filter id="paper" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.07" numOctaves="4" seed="11" result="noise"/>
+      <feDiffuseLighting in="noise" lighting-color="#ffffff" surfaceScale="0.55" result="lit">
+        <feDistantLight azimuth="45" elevation="78"/>
+      </feDiffuseLighting>
+      <feFlood flood-color="#fbf5ea" result="base"/>
+      <feBlend in="lit" in2="base" mode="multiply"/>
+    </filter>
+    <filter id="wash" x="-15%" y="-15%" width="130%" height="130%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.022" numOctaves="3" seed="2" result="warp"/>
+      <feDisplacementMap in="SourceGraphic" in2="warp" scale="14" xChannelSelector="R" yChannelSelector="G" result="shape"/>
+      <feGaussianBlur in="shape" stdDeviation="4" result="soft"/>
+      <feComposite in="shape" in2="soft" operator="arithmetic" k2="1.7" k3="-0.7" result="edge"/>
+      <feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="4" seed="5" result="bloom"/>
+      <feColorMatrix in="bloom" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  1.5 0 0 0 0.18" result="bloomA"/>
+      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="1" seed="9" result="grain"/>
+      <feColorMatrix in="grain" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0.7 0 0 0 0.6" result="grainA"/>
+      <feComposite in="bloomA" in2="grainA" operator="arithmetic" k1="1" result="tex"/>
+      <feComposite in="edge" in2="tex" operator="in"/>
+    </filter>
+    <filter id="wash-soft" x="-20%" y="-20%" width="140%" height="140%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.012" numOctaves="3" seed="21" result="warp"/>
+      <feDisplacementMap in="SourceGraphic" in2="warp" scale="40" xChannelSelector="R" yChannelSelector="G" result="shape"/>
+      <feGaussianBlur in="shape" stdDeviation="7" result="blur"/>
+      <feComposite in="shape" in2="blur" operator="arithmetic" k2="0.6" k3="0.6" result="edge"/>
+      <feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="4" seed="6" result="bloom"/>
+      <feColorMatrix in="bloom" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  1.2 0 0 0 0.2" result="bloomA"/>
+      <feComposite in="edge" in2="bloomA" operator="in"/>
+    </filter>
+    <filter id="wash-fine" x="-20%" y="-20%" width="140%" height="140%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.06" numOctaves="2" seed="3" result="warp"/>
+      <feDisplacementMap in="SourceGraphic" in2="warp" scale="5" xChannelSelector="R" yChannelSelector="G" result="shape"/>
+      <feGaussianBlur in="shape" stdDeviation="1.6" result="soft"/>
+      <feComposite in="shape" in2="soft" operator="arithmetic" k2="1.6" k3="-0.6"/>
+    </filter>
+    <filter id="pencil" x="-10%" y="-10%" width="120%" height="120%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="4" result="w"/>
+      <feDisplacementMap in="SourceGraphic" in2="w" scale="4" xChannelSelector="R" yChannelSelector="G" result="d"/>
+      <feTurbulence type="fractalNoise" baseFrequency="1.1" numOctaves="1" seed="8" result="g"/>
+      <feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  1.8 0 0 0 0" result="gA"/>
+      <feComposite in="d" in2="gA" operator="in"/>
+    </filter>
+    <filter id="ink" x="-5%" y="-5%" width="110%" height="110%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="1" seed="9" result="g"/>
+      <feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  1.2 0 0 0 0.25" result="gA"/>
+      <feComposite in="SourceGraphic" in2="gA" operator="in"/>
+    </filter>
+  </defs>
+
+  <rect width="800" height="800" filter="url(#paper)"/>
+
+  <!-- backdrop splash -->
+  <path d="M118,446 C108,304 236,204 400,208 C568,212 700,304 690,456 C682,586 580,670 410,670 C248,670 128,584 118,446 Z" fill="#a9bfcf" opacity="0.36" filter="url(#wash-soft)"/>
+
+  <!-- cast shadow -->
+  <path d="M170,540 C230,480 600,480 650,540 C676,600 560,640 410,638 C260,636 150,600 170,540 Z" fill="#9c96ab" opacity="0.34" filter="url(#wash-soft)"/>
+
+  <!-- slice 1 -->
+  <path d="M369,439 L602,521 L407,619 L174,537 Z" fill="#e9eef2" opacity="0.5" filter="url(#wash-fine)"/>
+  <path d="M371,445 L585,521 L405,611 L191,535 Z" fill="#d48f4c" opacity="0.92" filter="url(#wash-fine)"/>
+  <path d="M371,437 L585,513 L405,603 L191,527 Z" fill="#fbf5ea" filter="url(#wash-fine)"/>
+  <path d="M371,437 L585,513 L405,603 L191,527 Z" fill="#f0b86c" opacity="0.95" filter="url(#wash)"/>
+  <path d="M394,453 L426,464 L348,567 L316,556 Z" fill="#fbe3bd" opacity="0.5" filter="url(#wash)"/>
+  <path d="M369,429 L602,511 L407,609 L174,527 Z" fill="#f4f7f9" opacity="0.3" filter="url(#wash)"/>
+  <path d="M340,444 L573,526 L567,529 L335,446 Z" fill="#ffffff" opacity="0.45" filter="url(#wash-fine)"/>
+  <path d="M423,481 L448,549 L433,551 L402,482 Z" fill="#ffffff" opacity="0.55" filter="url(#wash)"/>
+  <g fill="none" stroke="#5f4a3a" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" opacity="0.76" filter="url(#pencil)">
+    <path d="M371,437 L585,513 L405,603 L191,527 Z"/>
+    <path d="M585,513 L585,521 L405,611 L191,535 L191,527" opacity="0.7"/>
+    <path d="M369,429 L602,511 L407,609 L174,527 Z" opacity="0.3"/>
+  </g>
+  <!-- slice 2 -->
+  <path d="M326,425 L608,473 L494,591 L212,543 Z" fill="#e9eef2" opacity="0.5" filter="url(#wash-fine)"/>
+  <path d="M333,430 L592,475 L487,584 L228,539 Z" fill="#d48f4c" opacity="0.92" filter="url(#wash-fine)"/>
+  <path d="M333,422 L592,467 L487,576 L228,531 Z" fill="#fbf5ea" filter="url(#wash-fine)"/>
+  <path d="M333,422 L592,467 L487,576 L228,531 Z" fill="#f0b86c" opacity="0.95" filter="url(#wash)"/>
+  <path d="M366,435 L405,441 L407,549 L368,543 Z" fill="#fbe3bd" opacity="0.5" filter="url(#wash)"/>
+  <path d="M326,415 L608,463 L494,581 L212,533 Z" fill="#f4f7f9" opacity="0.3" filter="url(#wash)"/>
+  <path d="M309,433 L591,481 L588,484 L306,436 Z" fill="#ffffff" opacity="0.45" filter="url(#wash-fine)"/>
+  <path d="M416,458 L489,518 L476,523 L396,461 Z" fill="#ffffff" opacity="0.55" filter="url(#wash)"/>
+  <path d="M257,537 L257,527 M254,530 L257,526 L260,530" fill="none" stroke="#7a5c45" stroke-width="1.3" opacity="0.6" filter="url(#wash-fine)"/>
+  <path d="M322,548 L322,538 M319,541 L322,537 L325,541" fill="none" stroke="#7a5c45" stroke-width="1.3" opacity="0.6" filter="url(#wash-fine)"/>
+  <path d="M387,559 L387,549 M384,552 L387,548 L390,552" fill="none" stroke="#7a5c45" stroke-width="1.3" opacity="0.6" filter="url(#wash-fine)"/>
+  <path d="M451,570 L451,560 M448,563 L451,559 L454,563" fill="none" stroke="#7a5c45" stroke-width="1.3" opacity="0.6" filter="url(#wash-fine)"/>
+  <g fill="none" stroke="#5f4a3a" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" opacity="0.76" filter="url(#pencil)">
+    <path d="M333,422 L592,467 L487,576 L228,531 Z"/>
+    <path d="M592,467 L592,475 L487,584 L228,539 L228,531" opacity="0.7"/>
+    <path d="M326,415 L608,463 L494,581 L212,533 Z" opacity="0.3"/>
+  </g>
+  <!-- slice 3 -->
+  <path d="M261,417 L563,430 L531,557 L229,544 Z" fill="#e9eef2" opacity="0.5" filter="url(#wash-fine)"/>
+  <path d="M271,421 L550,434 L521,551 L242,538 Z" fill="#d48f4c" opacity="0.92" filter="url(#wash-fine)"/>
+  <path d="M271,413 L550,426 L521,543 L242,530 Z" fill="#fbf5ea" filter="url(#wash-fine)"/>
+  <path d="M271,413 L550,426 L521,543 L242,530 Z" fill="#f0b86c" opacity="0.95" filter="url(#wash)"/>
+  <path d="M312,421 L353,423 L426,527 L384,525 Z" fill="#fbe3bd" opacity="0.5" filter="url(#wash)"/>
+  <path d="M261,407 L563,420 L546,488 L390,541 L229,534 Z" fill="#f4f7f9" opacity="0.34" filter="url(#wash)"/>
+  <path d="M256,426 L558,439 L557,443 L255,429 Z" fill="#ffffff" opacity="0.45" filter="url(#wash-fine)"/>
+  <path d="M375,438 L485,487 L476,493 L359,443 Z" fill="#ffffff" opacity="0.55" filter="url(#wash)"/>
+  <path d="M546,484 Q474,467 391,470 Q386,516 390,537 Z" fill="#f6f9fb" opacity="0.6" filter="url(#wash)"/>
+  <path d="M546,484 L390,537" fill="none" stroke="#ffffff" stroke-width="4" opacity="0.8" filter="url(#wash-fine)"/>
+  <g fill="none" stroke="#5f4a3a" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" opacity="0.76" filter="url(#pencil)">
+    <path d="M546,484 Q474,467 391,470 Q386,516 390,537 Z" opacity="0.55"/>
+    <path d="M468,489 L440,481" opacity="0.35"/>
+    <path d="M418,506 L406,493" opacity="0.35"/>
+    <path d="M443,498 L423,487" opacity="0.35"/>
+  </g>
+  <g fill="none" stroke="#5f4a3a" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" opacity="0.76" filter="url(#pencil)">
+    <path d="M271,413 L550,426 L521,543 L242,530 Z"/>
+    <path d="M550,426 L550,434 L521,551 L242,538 L242,530" opacity="0.7"/>
+    <path d="M261,407 L563,420 L546,488 L390,541 L229,534 Z" opacity="0.3"/>
+  </g>
+
+  <!-- caption -->
+  <g fill="#6a5242" font-family="'Cormorant Garamond', 'EB Garamond', Georgia, 'C059', 'Liberation Serif', serif" text-anchor="middle">
+    <text x="400" y="746" font-size="40" font-style="italic">Formaggio Fuso</text>
+    <text x="400" y="776" font-size="13" letter-spacing="5" opacity="0.75">A FETTE</text>
+  </g>
+</svg>

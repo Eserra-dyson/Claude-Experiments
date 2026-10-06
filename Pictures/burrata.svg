@@ -1,0 +1,141 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800">
+  <title>Burrata</title>
+  <defs>
+    <filter id="paper" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.07" numOctaves="4" seed="11" result="noise"/>
+      <feDiffuseLighting in="noise" lighting-color="#ffffff" surfaceScale="0.55" result="lit">
+        <feDistantLight azimuth="45" elevation="78"/>
+      </feDiffuseLighting>
+      <feFlood flood-color="#fbf5ea" result="base"/>
+      <feBlend in="lit" in2="base" mode="multiply"/>
+    </filter>
+    <filter id="wash" x="-15%" y="-15%" width="130%" height="130%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.022" numOctaves="3" seed="2" result="warp"/>
+      <feDisplacementMap in="SourceGraphic" in2="warp" scale="14" xChannelSelector="R" yChannelSelector="G" result="shape"/>
+      <feGaussianBlur in="shape" stdDeviation="4" result="soft"/>
+      <feComposite in="shape" in2="soft" operator="arithmetic" k2="1.7" k3="-0.7" result="edge"/>
+      <feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="4" seed="5" result="bloom"/>
+      <feColorMatrix in="bloom" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  1.5 0 0 0 0.18" result="bloomA"/>
+      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="1" seed="9" result="grain"/>
+      <feColorMatrix in="grain" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0.7 0 0 0 0.6" result="grainA"/>
+      <feComposite in="bloomA" in2="grainA" operator="arithmetic" k1="1" result="tex"/>
+      <feComposite in="edge" in2="tex" operator="in"/>
+    </filter>
+    <filter id="wash-soft" x="-20%" y="-20%" width="140%" height="140%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.012" numOctaves="3" seed="21" result="warp"/>
+      <feDisplacementMap in="SourceGraphic" in2="warp" scale="40" xChannelSelector="R" yChannelSelector="G" result="shape"/>
+      <feGaussianBlur in="shape" stdDeviation="7" result="blur"/>
+      <feComposite in="shape" in2="blur" operator="arithmetic" k2="0.6" k3="0.6" result="edge"/>
+      <feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="4" seed="6" result="bloom"/>
+      <feColorMatrix in="bloom" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  1.2 0 0 0 0.2" result="bloomA"/>
+      <feComposite in="edge" in2="bloomA" operator="in"/>
+    </filter>
+    <filter id="wash-fine" x="-20%" y="-20%" width="140%" height="140%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.06" numOctaves="2" seed="3" result="warp"/>
+      <feDisplacementMap in="SourceGraphic" in2="warp" scale="5" xChannelSelector="R" yChannelSelector="G" result="shape"/>
+      <feGaussianBlur in="shape" stdDeviation="1.6" result="soft"/>
+      <feComposite in="shape" in2="soft" operator="arithmetic" k2="1.6" k3="-0.6"/>
+    </filter>
+    <filter id="pencil" x="-10%" y="-10%" width="120%" height="120%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="4" result="w"/>
+      <feDisplacementMap in="SourceGraphic" in2="w" scale="4" xChannelSelector="R" yChannelSelector="G" result="d"/>
+      <feTurbulence type="fractalNoise" baseFrequency="1.1" numOctaves="1" seed="8" result="g"/>
+      <feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  1.8 0 0 0 0" result="gA"/>
+      <feComposite in="d" in2="gA" operator="in"/>
+    </filter>
+    <filter id="ink" x="-5%" y="-5%" width="110%" height="110%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="1" seed="9" result="g"/>
+      <feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  1.2 0 0 0 0.25" result="gA"/>
+      <feComposite in="SourceGraphic" in2="gA" operator="in"/>
+    </filter>
+  </defs>
+
+  <rect width="800" height="800" filter="url(#paper)"/>
+
+  <!-- backdrop splash -->
+  <path d="M120,440 C108,300 240,196 400,200 C570,204 700,300 690,450 C682,580 580,668 410,668 C250,668 132,578 120,440 Z" fill="#a9bfcf" opacity="0.36" filter="url(#wash-soft)"/>
+
+  <!-- cast shadow -->
+  <path d="M96,600 C170,566 640,566 708,606 C730,660 590,706 400,704 C210,702 74,656 96,600 Z" fill="#9c96ab" opacity="0.38" filter="url(#wash-soft)"/>
+
+  <!-- bowl -->
+  <path d="M100,555 C104,640 250,692 400,692 C550,692 696,640 700,555 Z" fill="#9fb3c3" opacity="0.85" filter="url(#wash)"/>
+  <path d="M120,585 C160,650 290,686 400,686 C470,686 540,676 590,660 C520,672 300,676 190,630 C150,612 130,600 120,585 Z" fill="#7e93a6" opacity="0.45" filter="url(#wash)"/>
+  <ellipse cx="400" cy="555" rx="300" ry="96" fill="#c3d2dc" opacity="0.92" filter="url(#wash)"/>
+  <ellipse cx="400" cy="548" rx="252" ry="74" fill="#e7eef0" opacity="0.9" filter="url(#wash)"/>
+  <path d="M168,560 C200,600 300,620 400,620 C500,620 600,600 632,560 C600,585 500,602 400,602 C300,602 200,585 168,560 Z" fill="#a8bccb" opacity="0.45" filter="url(#wash)"/>
+
+  <!-- cherry tomatoes -->
+  <circle cx="606" cy="488" r="38" fill="#d98a72" opacity="0.92" filter="url(#wash)"/>
+  <path d="M574,505 C584,530 620,536 640,512 C636,524 612,534 594,528 C584,524 576,516 574,505 Z" fill="#b6604c" opacity="0.6" filter="url(#wash)"/>
+  <ellipse cx="592" cy="474" rx="12" ry="8" fill="#fbeee6" opacity="0.75" filter="url(#wash-fine)"/>
+  <circle cx="654" cy="540" r="32" fill="#dc9078" opacity="0.92" filter="url(#wash)"/>
+  <path d="M626,552 C634,572 664,578 682,558 C678,570 656,578 640,572 C632,568 628,560 626,552 Z" fill="#b6604c" opacity="0.6" filter="url(#wash)"/>
+  <ellipse cx="642" cy="528" rx="10" ry="7" fill="#fbeee6" opacity="0.75" filter="url(#wash-fine)"/>
+  <g fill="#7a9468" opacity="0.95" filter="url(#wash-fine)">
+    <path d="M606,452 l-14,-6 l12,-2 l-2,-12 l8,10 l10,-8 l-2,12 l12,4 l-14,4 Z"/>
+    <path d="M654,510 l-12,-4 l10,-3 l-1,-10 l7,8 l9,-6 l-2,10 l10,4 l-12,3 Z"/>
+  </g>
+
+  <!-- burrata body -->
+  <path d="M250,512 C244,420 314,356 400,354 C486,356 556,420 550,512 C548,568 482,602 400,602 C318,602 252,568 250,512 Z" fill="#fbf7ee" filter="url(#wash-fine)"/>
+  <path d="M250,512 C244,420 314,356 400,354 C486,356 556,420 550,512 C548,568 482,602 400,602 C318,602 252,568 250,512 Z" fill="#f4efe4" opacity="0.9" filter="url(#wash)"/>
+  <path d="M550,505 C548,568 482,602 400,602 C332,602 280,580 260,548 C312,582 384,588 446,578 C506,568 540,536 550,488 Z" fill="#b9bacb" opacity="0.55" filter="url(#wash)"/>
+  <path d="M250,512 C246,462 266,420 304,392 C284,436 280,494 296,546 C272,540 254,530 250,512 Z" fill="#c4c5d4" opacity="0.42" filter="url(#wash)"/>
+  <path d="M430,362 C498,376 544,422 550,476 C528,432 486,402 440,390 Z" fill="#cbccd9" opacity="0.45" filter="url(#wash)"/>
+  <path d="M312,418 C336,394 362,384 384,384 C356,402 334,428 320,460 C308,450 306,432 312,418 Z" fill="#ffffff" opacity="0.9" filter="url(#wash-fine)"/>
+  <!-- gathered top and twisted tuft -->
+  <path d="M370,372 C384,380 418,382 434,370 C424,386 380,388 370,372 Z" fill="#c9cad7" opacity="0.6" filter="url(#wash-fine)"/>
+  <path d="M388,366 C380,352 388,338 402,336 C418,334 432,342 438,352 C428,360 414,366 400,370 Z" fill="#efe9da" filter="url(#wash-fine)"/>
+  <path d="M438,352 C432,342 418,334 402,336 C416,344 420,354 414,366 Z" fill="#bcbdcd" opacity="0.6" filter="url(#wash-fine)"/>
+
+  <!-- tear with stracciatella spilling onto the plate -->
+  <path d="M444,500 C452,484 466,486 474,476 C488,470 498,480 512,474 C526,470 538,480 540,494 C534,506 526,510 518,522 C506,534 494,528 482,536 C468,540 456,532 450,522 C442,516 440,508 444,500 Z" fill="#e6dab6" filter="url(#wash)"/>
+  <path d="M456,502 C466,494 478,494 486,488 C498,486 510,488 524,486 C526,498 516,506 506,514 C494,520 482,522 470,520 C460,516 454,510 456,502 Z" fill="#f7efd8" opacity="0.95" filter="url(#wash-fine)"/>
+  <path d="M496,530 C510,546 514,560 530,566 C556,574 600,570 618,584 C632,598 608,612 580,608 C560,616 528,618 502,610 C476,604 458,592 466,578 C474,566 488,560 490,546 Z" fill="#f3ebd2" filter="url(#wash)"/>
+  <path d="M498,604 C530,612 562,608 590,606 C610,602 622,596 620,588 C630,602 604,614 576,612 C546,618 518,614 498,604 Z" fill="#c4bfb4" opacity="0.55" filter="url(#wash-fine)"/>
+  <g fill="none" stroke="#a58e6a" stroke-width="1.3" stroke-linecap="round" opacity="0.6" filter="url(#pencil)">
+    <path d="M462,508 c10,-4 20,-4 30,0"/><path d="M490,500 c10,-4 18,-6 28,-6"/>
+    <path d="M474,516 c8,2 16,0 24,-4"/><path d="M496,546 c4,8 8,14 16,18"/>
+    <path d="M482,586 c18,6 40,8 60,6"/><path d="M548,578 c16,2 34,4 50,10"/>
+    <path d="M520,596 c16,4 34,4 50,2"/>
+  </g>
+
+  <!-- pencil linework -->
+  <g fill="none" stroke="#5f4a3a" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" opacity="0.75" filter="url(#pencil)">
+    <path d="M100,553 A300,96 0 0 0 700,557"/>
+    <path d="M102,560 C110,642 252,694 400,694 C552,694 694,640 698,560"/>
+    <path d="M100,553 C110,520 160,490 250,474" opacity="0.7"/>
+    <path d="M700,557 C694,524 660,500 600,484" opacity="0.5"/>
+    <path d="M252,508 C246,420 316,358 386,354"/>
+    <path d="M440,358 C504,370 556,428 549,508"/>
+    <path d="M251,516 C256,570 320,603 400,603 C430,603 456,598 476,590"/>
+    <path d="M388,366 C380,352 388,338 402,336 C418,334 432,342 438,352 C428,360 414,366 400,370"/>
+    <path d="M396,348 C404,350 412,348 420,342" opacity="0.6"/>
+    <path d="M378,374 C362,386 350,400 342,418" opacity="0.5"/>
+    <path d="M392,378 C386,390 382,400 380,412" opacity="0.4"/>
+    <path d="M418,376 C428,388 436,398 440,412" opacity="0.4"/>
+    <path d="M434,368 C452,378 466,392 474,406" opacity="0.5"/>
+    <path d="M444,500 C452,484 466,486 474,476 C488,470 498,480 512,474 C526,470 538,480 540,494 C534,506 526,510 518,522 C506,534 494,528 482,536 C468,540 456,532 450,522 C442,516 440,508 444,500 Z"/>
+    <path d="M530,566 C556,574 600,570 618,584 C632,598 608,612 580,608 C560,616 528,618 502,610" opacity="0.7"/>
+    <circle cx="606" cy="488" r="38"/>
+    <circle cx="654" cy="540" r="32"/>
+  </g>
+
+  <!-- basil -->
+  <path d="M150,520 C170,470 230,452 282,470 C258,510 210,536 150,520 Z" fill="#8fa77c" opacity="0.92" filter="url(#wash)"/>
+  <path d="M168,560 C168,512 214,486 262,494 C252,536 216,566 168,560 Z" fill="#7a9468" opacity="0.92" filter="url(#wash)"/>
+
+  <g fill="none" stroke="#5f4a3a" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" opacity="0.75" filter="url(#pencil)">
+    <path d="M150,520 C170,470 230,452 282,470 C258,510 210,536 150,520 Z"/>
+    <path d="M168,560 C168,512 214,486 262,494 C252,536 216,566 168,560 Z"/>
+    <path d="M190,500 C220,482 250,474 280,470" opacity="0.5"/>
+    <path d="M182,548 C206,524 230,508 258,496" opacity="0.5"/>
+  </g>
+
+  <!-- caption -->
+  <g fill="#6a5242" font-family="'Cormorant Garamond', 'EB Garamond', Georgia, 'C059', 'Liberation Serif', serif" text-anchor="middle">
+    <text x="400" y="746" font-size="40" font-style="italic">Burrata</text>
+    <text x="400" y="776" font-size="13" letter-spacing="5" opacity="0.75">PUGLIA</text>
+  </g>
+</svg>

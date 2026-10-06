@@ -1,0 +1,153 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800">
+  <title>Parmigiano Reggiano</title>
+  <defs>
+    <filter id="paper" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.07" numOctaves="4" seed="11" result="noise"/>
+      <feDiffuseLighting in="noise" lighting-color="#ffffff" surfaceScale="0.55" result="lit">
+        <feDistantLight azimuth="45" elevation="78"/>
+      </feDiffuseLighting>
+      <feFlood flood-color="#fbf5ea" result="base"/>
+      <feBlend in="lit" in2="base" mode="multiply"/>
+    </filter>
+    <filter id="wash" x="-15%" y="-15%" width="130%" height="130%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.022" numOctaves="3" seed="2" result="warp"/>
+      <feDisplacementMap in="SourceGraphic" in2="warp" scale="14" xChannelSelector="R" yChannelSelector="G" result="shape"/>
+      <feGaussianBlur in="shape" stdDeviation="4" result="soft"/>
+      <feComposite in="shape" in2="soft" operator="arithmetic" k2="1.7" k3="-0.7" result="edge"/>
+      <feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="4" seed="5" result="bloom"/>
+      <feColorMatrix in="bloom" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  1.5 0 0 0 0.18" result="bloomA"/>
+      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="1" seed="9" result="grain"/>
+      <feColorMatrix in="grain" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0.7 0 0 0 0.6" result="grainA"/>
+      <feComposite in="bloomA" in2="grainA" operator="arithmetic" k1="1" result="tex"/>
+      <feComposite in="edge" in2="tex" operator="in"/>
+    </filter>
+    <filter id="wash-soft" x="-20%" y="-20%" width="140%" height="140%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.012" numOctaves="3" seed="21" result="warp"/>
+      <feDisplacementMap in="SourceGraphic" in2="warp" scale="40" xChannelSelector="R" yChannelSelector="G" result="shape"/>
+      <feGaussianBlur in="shape" stdDeviation="7" result="blur"/>
+      <feComposite in="shape" in2="blur" operator="arithmetic" k2="0.6" k3="0.6" result="edge"/>
+      <feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="4" seed="6" result="bloom"/>
+      <feColorMatrix in="bloom" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  1.2 0 0 0 0.2" result="bloomA"/>
+      <feComposite in="edge" in2="bloomA" operator="in"/>
+    </filter>
+    <filter id="wash-fine" x="-20%" y="-20%" width="140%" height="140%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.06" numOctaves="2" seed="3" result="warp"/>
+      <feDisplacementMap in="SourceGraphic" in2="warp" scale="5" xChannelSelector="R" yChannelSelector="G" result="shape"/>
+      <feGaussianBlur in="shape" stdDeviation="1.6" result="soft"/>
+      <feComposite in="shape" in2="soft" operator="arithmetic" k2="1.6" k3="-0.6"/>
+    </filter>
+    <filter id="pencil" x="-10%" y="-10%" width="120%" height="120%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="4" result="w"/>
+      <feDisplacementMap in="SourceGraphic" in2="w" scale="4" xChannelSelector="R" yChannelSelector="G" result="d"/>
+      <feTurbulence type="fractalNoise" baseFrequency="1.1" numOctaves="1" seed="8" result="g"/>
+      <feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  1.8 0 0 0 0" result="gA"/>
+      <feComposite in="d" in2="gA" operator="in"/>
+    </filter>
+    <filter id="ink" x="-5%" y="-5%" width="110%" height="110%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="1" seed="9" result="g"/>
+      <feColorMatrix in="g" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  1.2 0 0 0 0.25" result="gA"/>
+      <feComposite in="SourceGraphic" in2="gA" operator="in"/>
+    </filter>
+  </defs>
+
+  <rect width="800" height="800" filter="url(#paper)"/>
+
+  <!-- backdrop splash -->
+  <path d="M128,430 C112,285 250,188 405,196 C565,204 700,282 688,432 C678,566 590,660 420,664 C262,668 142,585 128,430 Z" fill="#b3c2a0" opacity="0.4" filter="url(#wash-soft)"/>
+
+  <!-- cast shadow -->
+  <path d="M92,578 C160,540 610,548 722,602 C744,650 602,694 404,692 C206,690 70,644 92,578 Z" fill="#9c96ab" opacity="0.38" filter="url(#wash-soft)"/>
+
+  <!-- wheel side -->
+  <path d="M120,330 C100,400 100,490 120,560 A210,55 0 0 0 540,560 C560,490 560,400 540,330 A210,55 0 0 1 120,330 Z" fill="#e5c27a" opacity="0.88" filter="url(#wash)"/>
+  <path d="M120,330 C100,400 100,490 120,560 C140,585 170,600 205,608 C182,530 178,420 192,382 C160,372 134,354 120,330 Z" fill="#c38a47" opacity="0.45" filter="url(#wash)"/>
+  <path d="M540,330 C560,400 560,490 540,560 C515,585 488,598 455,606 C478,520 482,420 470,380 C505,370 528,352 540,330 Z" fill="#c38a47" opacity="0.35" filter="url(#wash)"/>
+  <path d="M126,540 C190,600 470,604 536,540 L540,560 A210,55 0 0 1 120,560 Z" fill="#b57c40" opacity="0.4" filter="url(#wash)"/>
+
+  <!-- pin-dot rind lettering -->
+  <g fill="none" stroke="#9a6233" stroke-width="3.2" stroke-linecap="round" stroke-dasharray="0.5 7" opacity="0.5" filter="url(#pencil)">
+    <path d="M114,372 A214,55 0 0 0 546,372"/>
+    <path d="M110,404 A218,55 0 0 0 550,404"/>
+    <path d="M109,436 A219,55 0 0 0 551,436"/>
+    <path d="M109,468 A219,55 0 0 0 551,468"/>
+    <path d="M111,500 A217,55 0 0 0 549,500"/>
+    <path d="M114,532 A214,55 0 0 0 546,532"/>
+  </g>
+
+  <!-- consortium stamp -->
+  <g transform="rotate(-4 268 486)" opacity="0.62">
+    <g filter="url(#pencil)">
+      <ellipse cx="268" cy="486" rx="64" ry="32" fill="#e3bb69" stroke="#8d5a2e" stroke-width="2.4"/>
+      <ellipse cx="268" cy="486" rx="54" ry="24" fill="none" stroke="#8d5a2e" stroke-width="1.4"/>
+    </g>
+    <g filter="url(#ink)">
+    <text x="268" y="481" text-anchor="middle" font-family="'Liberation Serif', 'Nimbus Roman', serif" font-size="12" letter-spacing="1.5" fill="#7d4f28">PARMIGIANO</text>
+    <text x="268" y="497" text-anchor="middle" font-family="'Liberation Serif', 'Nimbus Roman', serif" font-size="12" letter-spacing="1.5" fill="#7d4f28">REGGIANO</text>
+    </g>
+  </g>
+
+  <!-- wheel top -->
+  <ellipse cx="330" cy="330" rx="210" ry="55" fill="#eed392" opacity="0.92" filter="url(#wash)"/>
+  <ellipse cx="312" cy="322" rx="150" ry="32" fill="#fbf3dd" opacity="0.55" filter="url(#wash)"/>
+  <path d="M124,336 A210,55 0 0 0 536,336" fill="none" stroke="#c99a50" stroke-width="7" opacity="0.5" filter="url(#wash-fine)"/>
+
+  <!-- wedge: receding side face -->
+  <path d="M518,296 L542,286 L694,598 Q684,612 664,624 Z" fill="#c99b58" opacity="0.92" filter="url(#wash)"/>
+  <path d="M664,624 L694,598 L686,582 L656,605 Z" fill="#b97f40" opacity="0.85" filter="url(#wash-fine)"/>
+
+  <!-- wedge: front face (paste) -->
+  <path d="M518,296 L380,642 Q520,694 664,624 Z" fill="#f2dea2" opacity="0.95" filter="url(#wash)"/>
+  <path d="M518,296 L664,624 Q632,642 602,650 C592,560 562,432 518,296 Z" fill="#e2bf76" opacity="0.5" filter="url(#wash)"/>
+  <path d="M500,350 C470,420 450,500 445,560 C470,520 490,440 500,350 Z" fill="#fffaf0" opacity="0.6" filter="url(#wash)"/>
+  <!-- rind band -->
+  <path d="M386,624 Q520,670 657,606 L664,624 Q520,694 380,642 Z" fill="#d29f52" opacity="0.92" filter="url(#wash-fine)"/>
+
+  <!-- granular texture -->
+  <g fill="#fffaf0" opacity="0.85" filter="url(#wash-fine)">
+    <circle cx="488" cy="410" r="3"/><circle cx="512" cy="455" r="2.4"/><circle cx="470" cy="500" r="3.2"/>
+    <circle cx="540" cy="520" r="2.6"/><circle cx="455" cy="575" r="3"/><circle cx="520" cy="590" r="2.2"/>
+    <circle cx="575" cy="560" r="2.8"/><circle cx="498" cy="372" r="2"/><circle cx="430" cy="610" r="2.4"/>
+    <circle cx="560" cy="610" r="2"/><circle cx="505" cy="540" r="1.8"/><circle cx="485" cy="470" r="1.6"/>
+  </g>
+  <g fill="#c3964f" opacity="0.6" filter="url(#wash-fine)">
+    <circle cx="500" cy="430" r="1.8"/><circle cx="478" cy="530" r="2"/><circle cx="530" cy="485" r="1.6"/>
+    <circle cx="548" cy="590" r="2"/><circle cx="440" cy="598" r="1.6"/><circle cx="590" cy="600" r="1.8"/>
+    <circle cx="515" cy="400" r="1.4"/><circle cx="465" cy="560" r="1.6"/>
+  </g>
+  <g fill="none" stroke="#a87a3e" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" opacity="0.6" filter="url(#pencil)">
+    <path d="M492,395 l8,14 l-4,10 l9,16"/>
+    <path d="M462,512 l12,6 l6,-8 l14,10"/>
+    <path d="M528,548 l-6,14 l10,8 l-2,14"/>
+    <path d="M442,590 l14,-4 l10,6"/>
+    <path d="M560,575 l10,8 l12,-2"/>
+  </g>
+
+  <!-- crumbs -->
+  <path d="M232,628 L262,618 L282,636 L270,660 L238,662 L224,646 Z" fill="#f0d897" opacity="0.95" filter="url(#wash-fine)"/>
+  <path d="M262,618 L282,636 L270,660 L276,640 Z" fill="#d1a65e" opacity="0.8" filter="url(#wash-fine)"/>
+  <path d="M300,652 L322,646 L334,662 L322,678 L302,676 Z" fill="#efd594" opacity="0.95" filter="url(#wash-fine)"/>
+  <path d="M322,646 L334,662 L322,678 L326,660 Z" fill="#cfa35a" opacity="0.8" filter="url(#wash-fine)"/>
+  <path d="M190,662 L205,656 L214,668 L202,678 L189,674 Z" fill="#efd594" opacity="0.95" filter="url(#wash-fine)"/>
+
+  <!-- pencil linework -->
+  <g fill="none" stroke="#5f4a3a" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" opacity="0.78" filter="url(#pencil)">
+    <path d="M122,326 C102,400 100,490 121,562"/>
+    <path d="M118,560 A210,55 0 0 0 395,612"/>
+    <path d="M126,334 A208,53 0 0 1 536,325"/>
+    <path d="M122,330 A210,55 0 0 0 330,385"/>
+    <path d="M536,328 C548,360 553,420 553,470"/>
+    <path d="M519,294 L379,643 Q518,696 665,625"/>
+    <path d="M517,297 L543,285 L695,599 L666,624"/>
+    <path d="M518,296 L664,622"/>
+    <path d="M388,622 Q520,668 656,604" opacity="0.6"/>
+    <path d="M232,628 L262,618 L282,636 L270,660 L238,662 L224,646 Z"/>
+    <path d="M300,652 L322,646 L334,662 L322,678 L302,676 Z"/>
+    <path d="M190,662 L205,656 L214,668 L202,678 L189,674 Z"/>
+  </g>
+
+  <!-- caption -->
+  <g fill="#6a5242" font-family="'Cormorant Garamond', 'EB Garamond', Georgia, 'C059', 'Liberation Serif', serif" text-anchor="middle">
+    <text x="400" y="746" font-size="40" font-style="italic">Parmigiano Reggiano</text>
+    <text x="400" y="776" font-size="13" letter-spacing="5" opacity="0.75">EMILIA-ROMAGNA</text>
+  </g>
+</svg>

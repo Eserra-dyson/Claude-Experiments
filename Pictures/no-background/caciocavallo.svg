@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800">
+  <title>Caciocavallo</title>
+  <!--DEFS-->
+
+
+  <!-- cast shadow -->
+  <path d="M170,650 C240,626 600,626 694,652 C706,690 584,706 432,704 C280,702 158,686 170,650 Z" fill="#9c96ab" opacity="0.34" filter="url(#wash-soft)"/>
+
+  <!-- pole -->
+  <path d="M128,184 L672,184 C680,184 684,206 672,208 L128,208 C120,206 120,186 128,184 Z" fill="#bf9268" opacity="0.92" filter="url(#wash)"/>
+  <path d="M128,200 L672,200 L672,208 L128,208 Z" fill="#9a6e4a" opacity="0.5" filter="url(#wash-fine)"/>
+  <g fill="none" stroke="#5f4a3a" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" opacity="0.6" filter="url(#pencil)">
+    <path d="M128,184 L672,184 C680,184 684,206 672,208 L128,208 C120,206 120,186 128,184 Z"/>
+    <path d="M180,192 C260,190 330,194 380,192 M450,196 C520,194 590,198 640,195"/>
+  </g>
+
+  <!-- rope -->
+  <g fill="none" stroke-linecap="round" filter="url(#wash-fine)">
+    <path d="M312,336 C338,270 380,250 396,206 M494,379 C468,303 430,250 414,206" stroke="#b39a74" stroke-width="5"/>
+    <path d="M312,336 C338,270 380,250 396,206 M494,379 C468,303 430,250 414,206" stroke="#7d6648" stroke-width="2" stroke-dasharray="5 4" opacity="0.7"/>
+    <path d="M392,206 C390,186 398,178 405,178 C412,178 420,186 418,206" stroke="#b39a74" stroke-width="7"/>
+    <path d="M392,206 C390,186 398,178 405,178 C412,178 420,186 418,206" stroke="#7d6648" stroke-width="2" stroke-dasharray="5 4" opacity="0.7"/>
+  </g>
+
+  <!-- caciocavalli -->
+  <path d="M280,336 C274,356 258,366 236,388 C168,428 180,576 298,588 C416,576 428,428 360,388 C338,366 322,356 316,336 Z" fill="#fbf5ea" filter="url(#wash-fine)"/>
+  <path d="M280,336 C274,356 258,366 236,388 C168,428 180,576 298,588 C416,576 428,428 360,388 C338,366 322,356 316,336 Z" fill="#ecd393" opacity="0.93" filter="url(#wash)"/>
+  <path d="M368,392 C428,438 414,578 298,588 C368,558 398,478 368,392 Z" fill="#c99d55" opacity="0.5" filter="url(#wash)"/>
+  <path d="M228,438 C208,478 218,528 238,548 C232,508 236,468 228,438 Z" fill="#fffaf0" opacity="0.6" filter="url(#wash)"/>
+  <circle cx="298" cy="306" r="33" fill="#fbf5ea" filter="url(#wash-fine)"/>
+  <circle cx="298" cy="306" r="33" fill="#ecd393" opacity="0.93" filter="url(#wash)"/>
+  <path d="M305,273 A33,33 0 0 1 298,339 C318,306 314,286 305,273 Z" fill="#c99d55" opacity="0.45" filter="url(#wash)"/>
+  <ellipse cx="286" cy="294" rx="10" ry="7" fill="#fffaf0" opacity="0.7" filter="url(#wash-fine)"/>
+  <ellipse cx="298" cy="272" rx="6" ry="8" fill="#e2c27e" filter="url(#wash-fine)"/>
+  <ellipse cx="298" cy="340" rx="24" ry="7" fill="none" stroke="#b39a74" stroke-width="5" filter="url(#wash-fine)"/>
+  <ellipse cx="298" cy="340" rx="24" ry="7" fill="none" stroke="#7d6648" stroke-width="2" stroke-dasharray="5 4" opacity="0.7" filter="url(#wash-fine)"/>
+  <g fill="none" stroke="#5f4a3a" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" opacity="0.76" filter="url(#pencil)">
+    <path d="M280,336 C274,356 258,366 236,388 C168,428 180,576 298,588 C416,576 428,428 360,388 C338,366 322,356 316,336"/>
+    <circle cx="298" cy="306" r="33"/>
+  </g>
+  <path d="M491,379 C485,398 470,407 450,428 C386,466 397,605 508,616 C619,605 630,466 566,428 C546,407 531,398 525,379 Z" fill="#fbf5ea" filter="url(#wash-fine)"/>
+  <path d="M491,379 C485,398 470,407 450,428 C386,466 397,605 508,616 C619,605 630,466 566,428 C546,407 531,398 525,379 Z" fill="#ecd393" opacity="0.93" filter="url(#wash)"/>
+  <path d="M574,432 C630,475 617,607 508,616 C574,588 602,513 574,432 Z" fill="#c99d55" opacity="0.5" filter="url(#wash)"/>
+  <path d="M442,475 C423,513 433,560 452,578 C446,541 450,503 442,475 Z" fill="#fffaf0" opacity="0.6" filter="url(#wash)"/>
+  <circle cx="508" cy="351" r="31" fill="#fbf5ea" filter="url(#wash-fine)"/>
+  <circle cx="508" cy="351" r="31" fill="#ecd393" opacity="0.93" filter="url(#wash)"/>
+  <path d="M514,320 A31,31 0 0 1 508,382 C527,351 524,332 514,320 Z" fill="#c99d55" opacity="0.45" filter="url(#wash)"/>
+  <ellipse cx="497" cy="340" rx="9" ry="7" fill="#fffaf0" opacity="0.7" filter="url(#wash-fine)"/>
+  <ellipse cx="508" cy="319" rx="6" ry="8" fill="#e2c27e" filter="url(#wash-fine)"/>
+  <ellipse cx="508" cy="383" rx="23" ry="7" fill="none" stroke="#b39a74" stroke-width="5" filter="url(#wash-fine)"/>
+  <ellipse cx="508" cy="383" rx="23" ry="7" fill="none" stroke="#7d6648" stroke-width="2" stroke-dasharray="5 4" opacity="0.7" filter="url(#wash-fine)"/>
+  <g fill="none" stroke="#5f4a3a" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" opacity="0.76" filter="url(#pencil)">
+    <path d="M491,379 C485,398 470,407 450,428 C386,466 397,605 508,616 C619,605 630,466 566,428 C546,407 531,398 525,379"/>
+    <circle cx="508" cy="351" r="31"/>
+  </g>
+
+  <!-- paper tag -->
+  <path d="M526,385 L552,409" fill="none" stroke="#7d6648" stroke-width="1.4" filter="url(#wash-fine)"/>
+  <g transform="rotate(16 548 417)">
+    <path d="M548,405 L610,405 L610,439 L548,439 L538,422 Z" fill="#dcc79c" opacity="0.95" filter="url(#wash-fine)"/>
+    <circle cx="548" cy="422" r="3" fill="#fbf5ea"/>
+    <text x="581" y="427" text-anchor="middle" font-family="'Cormorant Garamond', 'EB Garamond', Georgia, 'C059', 'Liberation Serif', serif" font-style="italic" font-size="14" fill="#6a5242" filter="url(#ink)">Silano</text>
+    <path d="M548,405 L610,405 L610,439 L548,439 L538,422 Z" fill="none" stroke="#5f4a3a" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" opacity="0.76" filter="url(#pencil)"/>
+  </g>
+
+  <!-- cut chunk -->
+  <path d="M616,668 L716,676 L716,694 L618,688 Z" fill="#e8cb85" opacity="0.92" filter="url(#wash)"/>
+  <path d="M616,668 L694,640 L716,676 Z" fill="#fbf5ea" filter="url(#wash-fine)"/>
+  <path d="M616,668 L694,640 L716,676 Z" fill="#f4e6b4" opacity="0.93" filter="url(#wash-fine)"/>
+  <path d="M694,640 L716,676 L708,676 L690,646 Z" fill="#d9b56a" opacity="0.8" filter="url(#wash-fine)"/>
+  <g fill="none" stroke="#5f4a3a" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" opacity="0.76" filter="url(#pencil)">
+    <path d="M616,668 L694,640 L716,676 L616,668"/>
+    <path d="M616,668 L618,688 L716,694 L716,676"/>
+  </g>
+
+</svg>
